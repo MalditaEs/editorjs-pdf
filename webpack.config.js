@@ -33,7 +33,7 @@ module.exports = {
     ]
   },
   optimization: {
-    minimize: false
+    minimize: true
   },
   output: {
     path: __dirname + '/dist',
