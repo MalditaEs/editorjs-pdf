@@ -102,6 +102,19 @@ class PDFFile {
         return this.data;
     }
 
+    validate(savedData) {
+        const url = savedData && savedData.url;
+
+        // Si la URL es undefined o un string vacío, los datos no son válidos
+        if (url === undefined || url === '') {
+            return false;
+        }
+
+        // Si hay una URL, comprobamos que sea válida
+        const urlPattern = /^(https?):\/\/[^\s/$.?#].[^\s]*$/i;
+        return urlPattern.test(url);
+    }
+
     static get isReadOnlySupported() {
         return true;
     }
